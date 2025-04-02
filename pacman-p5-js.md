@@ -15,6 +15,73 @@
 
 [p5.js Web Editor](https://editor.p5js.org/)
 
+
+```diff
+65a66,71
+> // ▼▼▼ ここから追加：パックマンの口のアニメ用変数 ▼▼▼
+> let pacmanMouthOpen = 0;     // 口の開き具合(度数法)
+> let pacmanMouthDelta = 10;    // 口の開閉スピード
+> let pacmanMouthMax = 45;     // 最大開き角度
+> // ▲▲▲ 追加ここまで ▲▲▲
+> 
+194a201,210
+>   // ▼▼▼ ここから追加：パックマンの口の開閉を更新 ▼▼▼
+>   // 開き具合をフレームごとに増減させる
+>   pacmanMouthOpen += pacmanMouthDelta;
+>   if(pacmanMouthOpen < 0 || pacmanMouthOpen > pacmanMouthMax){
+>     pacmanMouthDelta *= -1;
+>     // はみ出た場合は端で止める
+>     pacmanMouthOpen = constrain(pacmanMouthOpen, 0, pacmanMouthMax);
+>   }
+>   // ▲▲▲ 追加ここまで ▲▲▲
+> 
+269a286,289
+>   // ▼▼▼ 追加：口のアニメ変数リセット ▼▼▼
+>   pacmanMouthOpen = 0;
+>   // ▲▲▲ 追加ここまで ▲▲▲
+> 
+329a350,355
+> 
+>   // ▼▼▼ ここから変更：角度を pacmanMouthOpen を使って可変に ▼▼▼
+>   // baseAngle はもとの基本角度差(=90度)の1/2に相当する角度 (45度)
+>   // そこから pacmanMouthOpen を加算/減算して口の開き具合を変化させる
+>   let baseAngle = 45;                // 元のコードで使われていた固定角度(90/2)
+>   let start, end;                    // arc の開始・終了角度(度)
+331,333d356
+<     case 'left':
+<       arc(x,y,size,size, radians(225),radians(135), PIE);
+<       break;
+335c358,365
+<       arc(x,y,size,size, radians(45),radians(315), PIE);
+---
+>       start = baseAngle - pacmanMouthOpen;       // 45 - α
+>       end   = 360 - baseAngle + pacmanMouthOpen; // 315 + α
+>       arc(x, y, size, size, radians(start), radians(end), PIE);
+>       break;
+>     case 'left':
+>       start = 180 + baseAngle - pacmanMouthOpen; // 225 - α
+>       end   = 540 - baseAngle + pacmanMouthOpen; // 495 + α
+>       arc(x, y, size, size, radians(start), radians(end), PIE);
+338c368,370
+<       arc(x,y,size,size, radians(315),radians(225), PIE);
+---
+>       start = 270 + baseAngle - pacmanMouthOpen; // 315 - α
+>       end   = 630 - baseAngle + pacmanMouthOpen; // 585 + α
+>       arc(x, y, size, size, radians(start), radians(end), PIE);
+341c373,378
+<       arc(x,y,size,size, radians(135),radians(405), PIE);
+---
+>       // down は元が [135, 405], つまり 270度 の弧
+>       // → 中心を 270deg(=135+135) で考えると ± baseAngle
+>       //   ここも pacmanMouthOpen を加減してみる
+>       start = 90 + baseAngle - pacmanMouthOpen;  // 135 - α
+>       end   = 450 - baseAngle + pacmanMouthOpen; // 405 + α
+>       arc(x, y, size, size, radians(start), radians(end), PIE);
+343a381
+>   // ▲▲▲ 変更ここまで ▲▲▲
+
+```
+
 ```js
 // ==================== 迷路関連 ====================
 const cols = 28;
