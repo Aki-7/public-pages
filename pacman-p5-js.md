@@ -1,8 +1,8 @@
-=== "p5.js × 生成AI でパックマンを作ろう" の記事が面白かったので、生成AIでパックマンの口をぱくぱくさせてみた。
+### "p5.js × 生成AI でパックマンを作ろう" の記事が面白かったので、生成AIでパックマンの口をぱくぱくさせてみた。
 
 元の記事はこちら。
 
-https://note.com/nice_llama936/n/n1f884905fe43?sub_rt=share_pw[１．はじめに：p5.js × 生成AI でパックマンを作ろう - Note]
+[１．はじめに：p5.js × 生成AI でパックマンを作ろう - Note](https://note.com/nice_llama936/n/n1f884905fe43?sub_rt=share_pw)
 
 
 生成AIで2000行以上のコードを編集するのがどれだけ大変か自分も体感したかったので、
@@ -13,7 +13,7 @@ https://note.com/nice_llama936/n/n1f884905fe43?sub_rt=share_pw[１．はじめ�
 
 元の記事のソースコードも以下のソースコードもp5.jsのエディタにコピペすることでそのまま動きます↓
 
-https://editor.p5js.org/[p5.js Web Editor]
+[p5.js Web Editor](https://editor.p5js.org/)
 
 [source,javascript]
 ----
