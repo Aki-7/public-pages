@@ -15,8 +15,7 @@
 
 [p5.js Web Editor](https://editor.p5js.org/)
 
-[source,javascript]
-----
+```js
 // ==================== 迷路関連 ====================
 const cols = 28;
 const rows = 36;
@@ -2087,4 +2086,4 @@ function sign(x){
   if(x<0) return -1;
   return 0;
 }
-----
+```
