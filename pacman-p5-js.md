@@ -16,9 +16,9 @@
 [p5.js Web Editor](https://editor.p5js.org/)
 
 
-読みにくいですが、変更差分も載せておきます。
+
 <details>
-<summary>変更差分 (diff形式)</summary>
+<summary>Diff形式で読みにくいですが、変更差分も載せておきます。</summary>
 
 ```diff
 65a66,71
