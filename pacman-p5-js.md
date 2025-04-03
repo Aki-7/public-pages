@@ -83,7 +83,7 @@
 >       arc(x, y, size, size, radians(start), radians(end), PIE);
 343a381
 >   // ▲▲▲ 変更ここまで ▲▲▲
-<pre>
+</pre>
 
 </details>
 
