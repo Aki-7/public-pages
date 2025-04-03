@@ -20,7 +20,7 @@
 <details>
 <summary>Diff形式で読みにくいですが、変更差分も載せておきます。</summary>
 
-```diff
+<pre>
 65a66,71
 > // ▼▼▼ ここから追加：パックマンの口のアニメ用変数 ▼▼▼
 > let pacmanMouthOpen = 0;     // 口の開き具合(度数法)
@@ -83,8 +83,7 @@
 >       arc(x, y, size, size, radians(start), radians(end), PIE);
 343a381
 >   // ▲▲▲ 変更ここまで ▲▲▲
-
-```
+<pre>
 
 </details>
 
